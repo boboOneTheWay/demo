@@ -1,0 +1,141 @@
+package rules.lhs
+ 
+import rules.lhs.Account;
+import rules.lhs.Customer;
+import java.util.ArrayList
+/**
+
+	Rule操纵应用程序中的数据（ fact ）
+	每个约束必须为true才能让RHS的actions fire
+	package：对一个规则文件而言，package是必须定义的，必须放在规则文件第一行。特别的是，package的名字是随意的，不必必须对应物理路径，
+	跟java的package的概念不同，这里只是逻辑上的一种区分。同样的package下定义的function和query等可以直接使用。
+
+	import：导入规则文件需要使用到的外部变量，这里的使用方法跟java相同，但是不同于java的是，这里的import导入的不仅仅可以是一个类，也可以是这个类中的某一个可访问的静态方法。
+
+
+	rule：定义一个规则。一个rule由conditions，和actions组成。
+		条件部分Conditions即LHS（left hand side）
+		结果部分Actions即RHS（right hand side或者consequence）
+
+		属性部分：定义当前规则执行的一些属性等，比如是否可被重复执行、过期时间、生效时间等。
+	
+	when
+		<Conditions>
+	then
+		<Actions>
+
+*/
+
+rule " test 12"
+	when
+		$customer : Customer()
+		eval($customer.getName() == 'zhangjiqiang')
+	then 
+		System.out.println("eval 测试成功");
+end
+
+/*
+
+rule " test one"
+    salience 10
+	when 
+		$customer : Customer( city == 'bj')
+	then 
+		System.out.println("测试成功----customer city :" + $customer.getCity() + "name : " + $customer.getName());
+end
+
+rule " test two "
+	when
+		$customer : Customer(name == 'gaobo' , age <=18) 
+		or
+		$account : Account(name == 'bj')
+	then 
+		System.out.println("and/or 测试成功");
+end
+
+
+rule " test three"
+	when
+		exists Customer( age == 18 )
+	then 
+		System.out.println("exists 测试成功");
+end
+
+
+rule " test four"
+	when
+		not Customer( name == 'gaobo' )
+	then 
+		System.out.println("not 测试成功");
+end
+
+
+rule " test five"
+	when
+		$customer : Customer()
+		Account(name == 'a2') from $customer.getAccounts()
+	then 
+		System.out.println("from 测试成功");
+end
+
+
+
+rule " test six"
+	when
+		ArrayList(size >= 4) from collect (Account(status == 'Y'))
+	then 
+		System.out.println("from 测试成功");
+end
+
+
+
+rule " test seven"
+	when
+		$total : Number(intValue >= 400) from accumulate (Account($num : num) , sum( $num ))
+	then 
+		System.out.println("accumulate 测试成功 , total : " + $total);
+end
+
+
+rule " test right"
+	when
+		Customer(city == 'bj1' && age == 19 || name == 'gaobo') or
+		Account(name == 'a1')
+	then 
+		System.out.println("&& || 测试成功");
+end
+
+
+rule " test nine"
+	when
+		$account : Account(name == 'a1')
+		Customer(name == 'gb' && accounts contains $account)
+	then 
+		System.out.println("contains 测试成功");
+end
+
+
+rule " test ten"
+	when
+		$account : Account(name == 'a1')
+		Customer($account memberOf accounts)
+	then 
+		System.out.println("memberOf 测试成功");
+end
+
+
+rule " test 11"
+	when
+		$customer : Customer(name matches 'zhang.*')
+	then 
+		System.out.println("matches 测试成功");
+end
+
+rule " test 12"
+	when
+		$customer : Customer()
+		eval($customer.getName() == 'zhangjiqiang')
+	then 
+		System.out.println("eval 测试成功");
+end
+*/

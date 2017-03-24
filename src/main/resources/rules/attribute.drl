@@ -1,0 +1,146 @@
+package rules.attribute
+ 
+import rules.attribute.DroolsTest.Message;
+import java.util.List;
+
+rule "no-loop"
+	no-loop true
+    when
+    	$message : Message()
+    then
+    	update($message);
+		System.out.println( "no-loop" );
+end
+
+
+/**
+rule "dialect"
+	dialect 'mvel'
+	when 
+		$message : Message()
+    then
+		List list = ["001", "002", "003"];
+		System.out.println("dialect= mvel," +  $message.message + ";" +
+		list);
+end
+
+rule "agenda-group1"
+	agenda-group 'agenda-group1'
+	auto-focus true
+	when 
+    then
+		System.out.println( "agenda-group1" );
+end
+
+rule "agenda-group2"
+	agenda-group 'agenda-group2'
+	auto-focus true
+	when 
+    then
+		System.out.println( "agenda-group2" );
+end
+
+
+rule "activation-group1"
+	activation-group 'test'
+	salience 3
+	when 
+    then
+		System.out.println( "activation-group-1" );
+end
+
+rule "activation-group2"
+	activation-group 'test'
+	when 
+    then
+		System.out.println( "activation-group-2" );
+end
+
+
+rule "duration"
+	duration 3000
+	when 
+    then
+		System.out.println( "duration, rule thread id : " +
+			Thread.currentThread().getId() );
+end
+
+rule "enabled"
+	enabled true
+	when 
+    then
+		System.out.println( "enabled=false" );
+end
+
+
+
+rule "date-effective"
+date-effective "21-DEC-2014"
+	when 
+    then
+		System.out.println( "date-effective" );
+end
+
+
+rule "salience1"
+	salience 1
+	//no-loop true
+    when
+    	
+    then
+		System.out.println( "salience 1" );
+end
+
+rule "salience3"
+	salience 0
+    when
+    then
+        System.out.println( "salience 0" );
+end
+
+
+
+
+
+rule "date-effective"
+date-effective "21-DEC-2014"
+	when 
+    then
+		System.out.println( "date-effective" );
+end
+
+rule "date-expires"
+date-expires "21-JUNE-2014"
+	when 
+    then
+		System.out.println( "date-expires" );
+end
+
+
+
+
+
+
+
+
+
+
+
+
+rule "lock-on-active"
+	agenda-group 'agenda-group'
+	lock-on-active true
+	when 
+		$message : Message()
+    then
+    	update($message);
+		System.out.println( "lock-on-active" );
+end
+
+
+
+
+*/
+
+
+

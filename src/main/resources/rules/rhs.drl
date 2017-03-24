@@ -1,0 +1,52 @@
+package rules.rhs
+ 
+import rules.rhs.Customer;
+
+
+rule "tedt 111"
+	salience 10
+	no-loop true
+    when
+        m : Customer( name == 'gb')
+    then
+        //System.out.println(m.getName());
+        //m.setName("zjq");
+        //m.setAge(19);
+        
+        
+        //modify 
+        modify(m){
+			 setName("zjq");
+		}
+		
+        //insert 
+        
+       m = new Customer();
+       m.setName("zjq");
+       insert( m );
+       System.out.println( "insert success" );
+        
+        
+        //update
+        
+        //update( m );
+        //System.out.println( "update success");
+       
+       //retract
+       //retract(m);
+end
+
+
+
+
+rule "test rhs"
+	salience 5
+    when
+       m: Customer( name == 'zjq' )
+        
+    then
+    	System.out.println( "test rhs name : " + m.getName());
+        System.out.println( "RuleName= " + kcontext.getRule().getName() );
+end
+
+

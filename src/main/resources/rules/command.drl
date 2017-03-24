@@ -1,0 +1,24 @@
+package drools.advance.command
+ 
+import drools.advance.command.Person
+ 
+query "queryPerson" () 
+	person:Person()
+end 
+
+rule "male"
+	when
+		$p : Person( gender == "male" )
+	then
+		System.out.println("rule 'male' is running...");
+		$p.setRetireAge(60l);
+end
+
+rule "female"
+
+	when
+		$p : Person( gender == "female" )
+	then
+		System.out.println("rule 'female' is running...");
+		$p.setRetireAge(55l);
+end

@@ -1,0 +1,67 @@
+package rules.demo;
+
+ 
+import rules.demo.Customer;
+import rules.demo.Account;
+import java.util.Date;
+
+
+import function 
+	rules.demo.ValidationHelper.error;
+import function 
+	rules.demo.ValidationHelper.warning;
+
+
+function boolean isAccountNumberUnique(Account $accout) {
+	String id = "1";
+	String accountId = $accout.getUuid();
+    return id.equals(accountId);  
+}
+
+function Integer yearsPassedSince(Date $date1) {
+    return 28;  
+}
+
+rule "addressRequired"
+	when
+		$customer : Customer( address == null ||  address == '')
+	then
+		warning(kcontext, $customer, "地址不能为空");
+		
+end
+
+rule "phoneNumberRequired"
+ 	when
+ 		$customer : Customer( phoneNumber == null || == "" )		
+	then
+		error(kcontext, $customer, "请输入电话号码");
+end
+
+rule "accountOwnerRequired"
+	when
+		$account : Account( owner == null )		
+	then		
+		error(kcontext, $account, "账户拥有人不能为空");
+end
+
+rule "studentAccountCustomerAgeLessThan"
+	when				
+		Customer( yearsPassedSince(dateOfBirth) >= 27 )
+		$account : Account( type == Account.Type.STUDENT )		
+	then
+		error(kcontext, $account, "大于27岁，不能申请学生账户");
+end
+
+rule "accountBalanceAtLeast"
+	when
+		$account : Account( balance < 100 )		
+	then		
+		warning(kcontext, $account, "账户余额不能少于100");
+end 
+
+rule "accountNumberUnique"
+	when
+		$account : Account(isAccountNumberUnique($account))
+	then
+		error(kcontext, $account, "账户号只能是唯一的");
+end
