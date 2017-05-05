@@ -1,0 +1,40 @@
+package rules.header
+ 
+import java.util.Date;
+import rules.header.Customer;
+
+global java.util.List list;
+global rules.header.GlobalService service;
+
+
+/**
+rule "global"
+    when
+    	
+    then
+		list.add("helloworld");
+		list.add(service.name());
+end
+
+rule "function"
+    when
+    	
+    then
+		sayHello() ;
+end
+
+function void sayHello() {
+	System.out.println("hello everyone");
+}
+*/
+
+
+
+query "queryName" () 
+	customer:Customer(name == 'gb')
+end
+
+query "queryName2" (String $attr) 
+	customer:Customer(name == $attr)
+end
+
