@@ -1,7 +1,5 @@
 package com.example.test;
 
-import java.util.concurrent.Future;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestMain {
