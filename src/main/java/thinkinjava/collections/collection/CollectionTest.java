@@ -170,5 +170,176 @@ public class CollectionTest {
 			System.out.println("队列移除的值：" + poll);
 		}
 	}
+	
+//	1、    sort(Collection)方法的使用(含义：对集合进行排序)。
+//    例：对已知集合c进行排序？
+
+//         public class Practice {
+//                public static void main(String[] args){
+//                             List c = new ArrayList();
+//                             c.add("l");
+//                             c.add("o");
+//                             c.add("v");
+//                             c.add("e");
+//                             System.out.println(c);
+//                             Collections.sort(c);
+//                             System.out.println(c);
+//                }
+//         }
+
+//     运行结果为：[l, o, v, e]
+//               [e, l, o, v]
+	
+	
+//	2、   shuffle(Collection)方法的使用(含义：对集合进行随机排序)。
+//    例：shuffle(Collection)的简单示例？
+//
+//         public class Practice {
+//                   public static void main(String[] args){
+//                           List c = new ArrayList();
+//                           c.add("l");
+//                           c.add("o");
+//                           c.add("v");
+//                           c.add("e");
+//                           System.out.println(c);
+//                           Collections.shuffle(c);
+//                           System.out.println(c);
+//                           Collections.shuffle(c);
+//                           System.out.println(c);
+//                      }
+//           }
+//
+//          运行结果为：[l, o, v, e]
+//                    [l, v, e, o]
+//                    [o, v, e, l]
+	
+	
+//	3、 binarySearch(Collection,Object)方法的使用(含义：查找指定集合中的元素，返回所查找元素的索引)。
+//    例:binarySearch(Collection,Object)的简单示例？
+//
+//         public class Practice {
+//                  public static void main(String[] args){
+//                          List c = new ArrayList();
+//                          c.add("l");
+//                          c.add("o");
+//                          c.add("v");
+//                          c.add("e");
+//                          System.out.println(c);
+//                          int m = Collections.binarySearch(c, "o");
+//                          System.out.println(m);
+//                         
+//                    }
+//          }
+//
+//    运行结果为：[l, o, v, e]
+	
+//	4、  replaceAll(List list,Object old,Object new)
+//    方法的使用(含义：替换批定元素为某元素,若要替换的值存在刚返回true,反之返回false)。
+//    例：
+//      public class Practice {
+//                  public static void main(String[] args){
+//                         List list = Arrays.asList("one two three four five six siven".split(" "));
+//                         System.out.println(list);
+//                         List subList = Arrays.asList("three four five six".split(" "));
+//                         System.out.println(Collections.replaceAll(list, "siven", "siven eight"));
+//                         System.out.println(list);
+//                   }
+//         }
+//
+//   运行结果为：
+//               [one, two, three, four, five, six, siven]
+//               true
+//               [one, two, three, four, five, six, siven eight]
+	
+	
+//	5、   reverse()方法的使用(含义：反转集合中元素的顺序)。
+//    例：
+//       public class Practice {
+//           public static void main(String[] args){
+//                  List list = Arrays.asList("one two three four five six siven".split(" "));
+//                  System.out.println(list);
+//                  Collections.reverse(list);
+//                  System.out.println(list);
+//            }
+//        }
+//
+// 运行结果为：
+//           [one, two, three, four, five, six, siven]
+//           [siven, six, five, four, three, two, one]
+	
+//	6、    rotate(List list,int m)方法的使用(含义：集合中的元素向后移m个位置，在后面被遮盖的元素循环到前面来)。
+//    例：
+//       public class Practice {
+//                public static void main(String[] args){
+//                         List list = Arrays.asList("one two three four five six siven".split(" "));
+//                         System.out.println(list);
+//                         Collections.rotate(list, 1);
+//                         System.out.println(list);
+//                   }
+//         }
+//
+// 运行结果为：
+//           [one, two, three, four, five, six, siven]
+//           [siven, one, two, three, four, five, six]
+	
+	
+//	7、    copy(List m,List n)方法的使用(含义：将集合n中的元素全部复制到m中,并且覆盖相应索引的元素)。
+//    例：
+//         public class Practice {
+//                 public static void main(String[] args){
+//                         List m = Arrays.asList("one two three four five six siven".split(" "));
+//                         System.out.println(m);
+//                         List n = Arrays.asList("我 是 复制过来的哈".split(" "));
+//                         System.out.println(n);
+//                         Collections.copy(m,n);
+//                         System.out.println(m);
+//                   }
+//          }
+//
+//运行结果为：[one, two, three, four, five, six, siven]
+//          [我, 是, 复制过来的哈]
+//          [我, 是, 复制过来的哈, four, five, six, siven]
+	
+	
+//	8、     swap(List list,int i,int j)方法的使用(含义：交换集合中指定元素索引的位置)。
+//    例：
+//        public class Practice {
+//                  public static void main(String[] args){
+//                         List m = Arrays.asList("one two three four five six siven".split(" "));
+//                         System.out.println(m);
+//                         Collections.swap(m, 2, 3);
+//                         System.out.println(m);
+//                    }
+//         }
+//
+//运行结果为：
+//       [one, two, three, four, five, six, siven]
+//       [one, two, four, three, five, six, siven]
+	
+//	9、 fill(List list,Object o)方法的使用(含义：用对象o替换集合list中的所有元素)。
+//    例：
+//       public class Practice {
+//                 public static void main(String[] args){
+//                            List m = Arrays.asList("one two three four five six siven".split(" "));
+//                         System.out.println(m);
+//                          Collections.fill(m, "啊啊啊");
+//                         System.out.println(m);
+//                  }
+//       }
+//
+//     运行结果为：
+//              [one, two, three, four, five, six, siven]
+//              [啊啊啊, 啊啊啊, 啊啊啊,啊啊啊, 啊啊啊, 啊啊啊, 啊啊啊]
+	
+//	10、 nCopies(int n,Object o)方法的使用(含义：返回大小为n的List，List不可改变,其中的所有引用都指向o)。
+//    例：
+//      public class Practice {
+//               public static void main(String[] args){
+//                         System.out.println(Collections.nCopies(5, "嘿嘿"));
+//                  }
+//       }
+//
+//   运行结果为：
+//       　　  [嘿嘿, 嘿嘿, 嘿嘿, 嘿嘿, 嘿嘿]
 
 }
