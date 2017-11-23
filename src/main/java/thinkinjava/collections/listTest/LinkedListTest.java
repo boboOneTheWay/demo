@@ -219,6 +219,11 @@ public class LinkedListTest<E> extends AbstractSequentialList<E>
         final Node<E> next = x.next;
         final Node<E> prev = x.prev;
 
+        /**
+         * 如果前驱节为空说明该节点为头节点，需要将该节点的后继节点设置为首节点
+         * 如果前驱节点不为空，将前驱节点的后继继节点设置为要移除节点的后继节点，并将要移除节点的前驱节点设置为空
+         * 
+         */
         if (prev == null) {
             first = next;
         } else {
@@ -226,19 +231,30 @@ public class LinkedListTest<E> extends AbstractSequentialList<E>
             x.prev = null;
         }
 
+        /**
+         * 如果要移除节点的后继节点为空，则证明该节点为尾节点，将该节点的前驱节点设置为尾节点
+         * 如果要移除节点的后继节点为空，则将要移除节点的前驱节点设置为该节点后继节点的前驱节点，并将该节点的后继节点设置为空
+         */
         if (next == null) {
             last = prev;
         } else {
             next.prev = prev;
             x.next = null;
         }
-
+        /**
+         * 将元素设置为空，help GC
+         * size --
+         */
         x.item = null;
         size--;
         modCount++;
         return element;
     }
-
+	
+	public boolean addAll(Collection<? extends E> c) {
+        return addAll(size, c);
+    }
+	
 	@Override
 	public boolean offerFirst(E e) {
 		// TODO Auto-generated method stub
