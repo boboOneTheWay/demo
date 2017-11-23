@@ -30,5 +30,12 @@ public class ArrayTest {
 		a2[3] = 88;
 		System.out.println(Arrays.equals(a1, a2));
 		
+		/**
+		 * 
+		 */
+		
 	}
+	/**
+	 * 
+	 */
 }
