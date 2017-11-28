@@ -14,27 +14,27 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
-	  <repositories>  
-    <repository>  
-      <id>jboss-public-repository-group</id>  
-      <name>JBoss Public Repository Group</name>  
-      <url>http://repository.jboss.org/nexus/content/groups/public/</url>  
-      <releases>  
-        <enabled>true</enabled>  
-        <updatePolicy>never</updatePolicy>  
-      </releases>  
-      <snapshots>  
-        <enabled>true</enabled>  
-        <updatePolicy>daily</updatePolicy>  
-      </snapshots>  
-    </repository>  
-  </repositories>  
+
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<properties>
-	<runtime.version>6.4.0.Final</runtime.version> 
+		<runtime.version>6.4.0.Final</runtime.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -55,40 +55,50 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		
-		<dependency>  
-      <groupId>org.kie</groupId>  
-      <artifactId>kie-api</artifactId>  
-      <version>${runtime.version}</version>  
-    </dependency>
-    <dependency>  
-      <groupId>org.kie</groupId>  
-      <artifactId>kie-spring</artifactId>  
-      <version>${runtime.version}</version>  
-    </dependency>  
-    <dependency>  
-      <groupId>org.drools</groupId>  
-      <artifactId>drools-core</artifactId>  
-      <version>${runtime.version}</version>  
-    </dependency> 
-    <dependency>  
-      <groupId>org.drools</groupId>  
-      <artifactId>drools-decisiontables</artifactId>  
-      <version>${runtime.version}</version>  
-    </dependency> 
-    <dependency>
-	    <groupId>org.jbpm</groupId>
-	    <artifactId>jbpm-test</artifactId>
-	    <version>${runtime.version}</version>
-    </dependency> 
-    <dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-nop</artifactId>
-		<version>1.7.6</version>
-	</dependency>
-		
-		
+
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>5.0.0.Alpha1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+		<dependency>
+		    <groupId>com.google.protobuf</groupId>
+		    <artifactId>protobuf-java</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-spring</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-decisiontables</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-test</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>1.7.6</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
