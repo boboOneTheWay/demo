@@ -31,6 +31,7 @@ public class ServerNIO {
 	public static void handleRead(SelectionKey key) throws IOException {
 		SocketChannel sc = (SocketChannel) key.channel();
 		ByteBuffer buf = (ByteBuffer) key.attachment();
+		//读取操作是异步的
 		long bytesRead = sc.read(buf);
 		while (bytesRead > 0) {
 			buf.flip();
