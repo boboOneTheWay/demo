@@ -1,13 +1,11 @@
 package loan;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 
 /**
@@ -15,11 +13,6 @@ import java.util.Optional;
  *
  */
 public class DateUtil {
-	private static DateFormat df4=new SimpleDateFormat("MMdd");
-	private static DateFormat df6=new SimpleDateFormat("yyyyMM");
-	private static DateFormat df8=new SimpleDateFormat("yyyyMMdd");
-	private static DateFormat df10=new SimpleDateFormat("yyyy-MM-dd");
-	private static DateFormat df14=new SimpleDateFormat("yyyyMMddHHmmss");
 
     /*
      * 获得和给定日期sDate相差Days天的日期yyyy/MM/dd
@@ -361,72 +354,6 @@ public class DateUtil {
     }  
     
      
-    /**
-     * @Title: format8 
-     * @Description: 将Date类型的日期转换成8位日期
-     * @param date
-     * @return
-     * @author zgq
-     */
-	public static String format8(Date date){
-		if(Optional.ofNullable(date).isPresent()){
-			return df8.format(date);
-		}
-		return null;
-	}
-	
-	/**
-     * @Title: format4 
-     * @Description: 将Date类型的日期转换成4位日期
-     * @param date
-     * @return
-     * @author zgq
-     */
-	public static String format4(Date date){
-		if(Optional.ofNullable(date).isPresent()){
-			return df4.format(date);
-		}
-		return null;
-	}
-	/**
-	 * @Title: format14 
-	 * @Description: 将Date类型的日期转换成14位日期
-	 * @param date
-	 * @return
-	 * @author zgq
-	 */
-	public static String format14(Date date){
-		if(Optional.ofNullable(date).isPresent()){
-			return df14.format(date);
-		}
-		return null;
-	}
-
-	/**
-	 * @Title: format6
-	 * @Description: 将Date类型的日期转换成6位日期
-	 * @param date
-	 * @return
-	 */
-	public static String format6(Date date){
-		if(Optional.ofNullable(date).isPresent()){
-			return df6.format(date);
-		}
-		return null;
-	}
-	
-	/**
-	 * @Title: format10
-	 * @Description: 将Date类型的日期转换成10位日期 yyyy-MM-DD
-	 * @param date
-	 * @return
-	 */
-	public static String format10(Date date){
-		if(Optional.ofNullable(date).isPresent()){
-			return df10.format(date);
-		}
-		return null;
-	}
 	
 	
 	/**
