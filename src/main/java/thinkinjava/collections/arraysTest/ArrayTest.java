@@ -1,6 +1,8 @@
 package thinkinjava.collections.arraysTest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ArrayTest {
 
@@ -29,10 +31,25 @@ public class ArrayTest {
 		System.out.println(Arrays.equals(a1, a2));
 		a2[3] = 88;
 		System.out.println(Arrays.equals(a1, a2));
-		
-		/**
-		 * 
-		 */
+
+		List<String> list = new ArrayList<>();
+		list.add("zz");
+		list.add("tt");
+		list.add("yy");
+		list.add("mm");
+		String[] array = new String[]{"aa","bb","cc"};
+		String[] strLIst = list.toArray(array);
+		for(String str : list) {
+			System.out.println("list=" + str);
+		}
+
+		for (String str : strLIst){
+			System.out.println("str=" + str);
+		}
+
+		for (String str : array){
+			System.out.println("array=" + str);
+		}
 		
 	}
 	/**
