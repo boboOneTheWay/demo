@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
@@ -112,7 +113,41 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.46</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.ncf.supplychain.platform</groupId>
+			<artifactId>logging</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.apache.commons</groupId>-->
+			<!--<artifactId>commons-lang3</artifactId>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>2.2.13</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ncf.supplychain.platform</groupId>
+			<artifactId>redis</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.google.guava</groupId>-->
+			<!--<artifactId>guava</artifactId>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<build>
@@ -124,73 +159,66 @@
 		</plugins>
 	</build>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok-maven-plugin</artifactId>
-				<version>1.14.8.0</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>delombok</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<uriEncoding>UTF-8</uriEncoding>
-					<username>both</username>
-					<password>tomcat</password>
-					<path>/core-tester</path>
-					<systemProperties>
-						<JAVA_OPTS>-Xms1024m -Xmx1024m -XX:MaxPermSize=1024m
-						</JAVA_OPTS>
-					</systemProperties>
-					<port>9999</port>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<configuration>
-					<excludeGroupIds>junit</excludeGroupIds>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.ncf.supplychain.platform</groupId>
-				<artifactId>controller-generator</artifactId>
-				<version>1.0-SNAPSHOT</version>
-				<configuration>
-					<configurationFile>
-						${basedir}/src/test/resources/controllerGeneratorConfig.xml
-					</configurationFile>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>com.ncf.supplychain.platform</groupId>
-						<artifactId>trade-bridge-service</artifactId>
-						<version>1.0-SNAPSHOT</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-		<finalName>core-tester</finalName>
-	</build>
+	<!--<build>-->
+		<!--<plugins>-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-compiler-plugin</artifactId>-->
+				<!--<version>2.3.2</version>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<groupId>org.projectlombok</groupId>-->
+				<!--<artifactId>lombok-maven-plugin</artifactId>-->
+				<!--<version>1.14.8.0</version>-->
+				<!--<configuration>-->
+					<!--<encoding>UTF-8</encoding>-->
+				<!--</configuration>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<phase>generate-sources</phase>-->
+						<!--<goals>-->
+							<!--<goal>delombok</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.tomcat.maven</groupId>-->
+				<!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+				<!--<version>2.2</version>-->
+				<!--<configuration>-->
+					<!--<uriEncoding>UTF-8</uriEncoding>-->
+					<!--<username>both</username>-->
+					<!--<password>tomcat</password>-->
+					<!--<path>/core-tester</path>-->
+					<!--<systemProperties>-->
+						<!--<JAVA_OPTS>-Xms1024m -Xmx1024m -XX:MaxPermSize=1024m-->
+						<!--</JAVA_OPTS>-->
+					<!--</systemProperties>-->
+					<!--<port>9999</port>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-dependency-plugin</artifactId>-->
+				<!--<version>2.10</version>-->
+				<!--<configuration>-->
+					<!--<excludeGroupIds>junit</excludeGroupIds>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<groupId>com.ncf.supplychain.platform</groupId>-->
+				<!--<artifactId>controller-generator</artifactId>-->
+				<!--<version>1.0-SNAPSHOT</version>-->
+				<!--<configuration>-->
+					<!--<configurationFile>-->
+						<!--${basedir}/src/test/resources/controllerGeneratorConfig.xml-->
+					<!--</configurationFile>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+		<!--</plugins>-->
+		<!--<finalName>core-tester</finalName>-->
+	<!--</build>-->
 
 
 </project>
