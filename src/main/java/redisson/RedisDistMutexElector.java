@@ -15,7 +15,7 @@ import sun.misc.Signal;
 public class RedisDistMutexElector implements IDistMutexElector {
     @Override
     public void becomeActiveOrDie(Class var1) throws InterruptedException {
-        
+
     }
 //    private static final Logger log = LoggerFactory.getLogger(RedisDistMutexElector.class);
 //    private static final String ELECTOR_CONFIG_NAME_FORMAT = "%s.mutex.elector";
